@@ -9,7 +9,7 @@ function initialize(){
     getWeatherForecast();
 }
 
-//functia butonului show weather
+//Buton show weather
 function getWeatherNow(){
     let getWeatherNowButton = document.querySelector("#show-weather");
     getWeatherNowButton.addEventListener("click",function(){
@@ -21,7 +21,7 @@ function getWeatherNow(){
         }
     })
 }
-//functia butonului show forecast
+//Buton show forecast
 function getWeatherForecast(){
     let getWeatherForecastButton = document.querySelector("#show-forecast");
     let weatherForecastContainer = document.querySelector("#weather-forecast");
@@ -115,19 +115,18 @@ function draw(){
         dayElements[dayIndex].innerHTML += `
     <h3 class="forecast-date">${dateTime[0]}</h3>
     `
-//creez spatii goale in div day pentru a alinia casutele de forecast orar
+//spatii goale in div day pentru a alinia casutele de forecast orar
         for(let i = 0; i < parseInt(dateTime[1])/3; i++){
             dayElements[dayIndex].innerHTML = dayElements[dayIndex].innerHTML + `
         <div class="hour-content d-flex flex-column align-center"></div>
       `
         }
 
-//desenez continutul forecastului
+// continut forecast
         for(let i = 0; i < response.list.length; i++){
             let dateTime = response.list[i].dt_txt.split(" ");
             let date = dateTime[0];
             let time = dateTime[1];
-//daca se schimba data, schimb containerul pentru zi si adaug data + incrementez indexul pentru zi
             if(day !== date){
                 dayIndex++;
                 day = date;
